@@ -5,9 +5,9 @@ This container helps compiling latex sources without the need to install all lat
 
 Setup
 -----
-First, add your local user to docker group:
+First, add your local user to docker group, to execute docker without always needing `sudo`:
 ```bash
-sudo usermod -aG docker YOURUSERNAME
+sudo usermod -aG docker $USER
 ```
 
 Pull image:
@@ -17,7 +17,6 @@ docker pull calvinspiff/latex-docker
 or build:
 ```bash
 docker build -t calvinspiff/latex-docker .
-
 ```
 
 Usage:
@@ -37,6 +36,6 @@ Why should I use this container?
 -----
 
 - Easy setup
-- Uses latexmk to compile
+- Uses [latexmk](https://duckduckgo.com/?q=latexmk&t=ffab&ia=web) to compile
 - Preserves UID and GID of local user
 - Use container like local command
