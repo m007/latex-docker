@@ -2,11 +2,9 @@ FROM debian:stretch
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -q && apt-get install -qy \
-    texlive-full texlive-lang-german texlive-latex-extra \
-    curl \
+    texlive-full texlive-lang-german texlive-latex-extra latexmk curl \
     && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update -q && apt-get install -qy latexmk
+RUN apt-get update -q && apt-get dist-upgrade -qy
 
 WORKDIR /data
 VOLUME ["/data"]
