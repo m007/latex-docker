@@ -1,9 +1,7 @@
-Latex docker container
+LaTeX docker container
 =====
 
 This container helps compiling latex sources without the need to install all latex packages on your system.
-
-Check out my [blog post](https://www.blang.io/posts/2015-04_docker-tooling-latex/).
 
 Setup
 -----
@@ -12,38 +10,33 @@ First, add your local user to docker group:
 sudo usermod -aG docker YOURUSERNAME
 ```
 
-Pull image ([from Hub](https://registry.hub.docker.com/u/blang/latex)):
+Pull image:
 ```bash
-docker pull blang/latex
+docker pull calvinspiff/latex-docker
 ```
 or build:
 ```bash
-docker build -t blang/latex .
+docker build -t calvinspiff/latex-docker .
 
 ```
 
 Usage:
 -----
 
+Switch to a directory containing your latex sources, then:
+
 ```bash
-cd example
-
-# Double to process refs
-../dockercmd.sh pdflatex example.tex
-../dockercmd.sh pdflatex example.tex
-
-# Or better in one go (does not start container twice)
-../dockercmd.sh /bin/sh -c "pdflatex example.tex && pdflatex example.tex"
+# Suppose example.tex is the document you want to compile
+/path/to/your/dockercmd.sh example.tex
 
 # View
 ./example.pdf
 ```
-Use `dockercmd.sh` to execute any command you like inside the container. `WORKDIRs` match, mounted to `/data` inside container.
 
 Why should I use this container?
 -----
 
 - Easy setup
+- Uses latexmk to compile
 - Preserves UID and GID of local user
 - Use container like local command
-- `texlive-full` covers most of the available packages
