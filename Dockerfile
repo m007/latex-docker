@@ -6,7 +6,7 @@ RUN apt-get update -q && apt-get install -qy \
     curl inkscape plantuml \
     && apt-get autoclean -y \
     && apt-get autoremove -y \
-    && apt-get clean
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 RUN apt-get update -q && apt-get dist-upgrade -qy
 
