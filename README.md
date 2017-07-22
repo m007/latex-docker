@@ -38,4 +38,7 @@ Why should I use this container?
 - Easy setup
 - Uses [latexmk](https://duckduckgo.com/?q=latexmk&t=ffab&ia=web) to compile
 - Preserves UID and GID of local user
+- Uses german language settings
+- Comes with inkscape and PlantUML preinstalled
+- `curl` can be ussed in possible deploy steps
 - Use container like local command
