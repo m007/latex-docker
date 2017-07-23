@@ -8,10 +8,12 @@ RUN apt-get update -q && apt-get install -qy \
     && rm -rf /var/lib/apt/lists/*
 RUN apt-get update -q && apt-get dist-upgrade -qy
 
-RUN locale-gen de_DE.UTF-8
+RUN echo 'de_DE.UTF-8 UTF-8' > /etc/locale.gen && \
+    dpkg-reconfigure locales && \
+    update-locale
 ENV LANG de_DE.UTF-8
-ENV LANGUAGE de_DE:en
+ENV LANGUAGE de_DE
 ENV LC_ALL de_DE.UTF-8
 
-WORKDIR /data
-VOLUME ["/data"]
+WORKDIR /mnt
+VOLUME ["/mnt"]
