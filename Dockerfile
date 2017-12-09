@@ -6,7 +6,6 @@ RUN apt-get update -q && apt-get install -qy \
     curl inkscape plantuml locales \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-RUN apt-get update -q && apt-get dist-upgrade -qy
 
 RUN echo 'de_DE.UTF-8 UTF-8' > /etc/locale.gen && \
     dpkg-reconfigure locales && \
